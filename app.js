@@ -1,16 +1,24 @@
-var mongoose = require('mongoose').mongo.MongoClient
-mongoose.connect('mongodb+srv://dbUser:12345@cluster0-hx765.mongodb.net/buDatabase',
+const mongoose = require('mongoose').mongo.MongoClient
+const ObjectID = require('mongodb').ObjectID;
+
+mongoose.connect('mongodb+srv://ahmttnstpe:123456at@cluster0-vnttg.mongodb.net/test?retryWrites=true&w=majority',
     { useUnifiedTopology: true, useNewUrlParser: true },
     function (eer, cli) {
         if (!eer) {
             console.log("bağlantı başarılı");
 
-            var dib = cli.db('buDatabase');
-            var buCol= dib.collection('buCollection');
+            var dib = cli.db('Library');
+            var buCol= dib.collection('books');
             
-           // buCol.insertOne( { ad: "murat", soyad:"veli", no:2222 } );
+            //buCol.insertOne( { title: "Javascript", page:2222 } );
            // buCol.deleteOne({ad:"ali"});
-           // buCol.updateOne({no:1525, $set:{ad:"veli",soyad:"meli"}})
+            buCol.updateOne(
+                { _id: new ObjectID("5e8ec70d2ff9052938b1f20e") },
+                { $set: { title: "Javascript", page: 300 } },
+                { upsert: true }
+            );
+
+           
 
             buCol.find({}).toArray(function (er, result) {
                 if (er) throw er;
