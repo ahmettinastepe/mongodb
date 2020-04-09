@@ -1,7 +1,7 @@
 const mongoose = require('mongoose').mongo.MongoClient
 const ObjectID = require('mongodb').ObjectID;
 
-mongoose.connect('mongodb+srv://ahmttnstpe:123456at@cluster0-vnttg.mongodb.net/test?retryWrites=true&w=majority',
+mongoose.connect('MONGODB BAGALNTI CUMLENIZ',
     { useUnifiedTopology: true, useNewUrlParser: true },
     function (eer, cli) {
         if (!eer) {
